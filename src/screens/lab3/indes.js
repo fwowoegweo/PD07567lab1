@@ -1,8 +1,27 @@
-import React from "react";
-import { Text } from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
+import { styles } from "./styles";
+import { useState } from "react";
 
-const MyLab3 = () => {
-    return <Text>Đây là lab 3</Text>
+const ViewComponent = () =>{
+const [name, setName] = useState('');
 
-}
-export default MyLab3;
+  return(
+    <View style = {styles.container}>
+      <TextInput value={name}
+      onChangeText={setName}
+      placeholder="Nhap ho ten"
+      style={styles.tipStyle}
+      />
+
+      
+         <Text style = {styles.baseText}>
+          Em vao doi bang {' '}
+         <Text style = {[styles.boldText, ColorText('red')]}>Vang doc</Text>
+         </Text>
+    </View>
+  );
+};
+export default ViewComponent;
+const ColorText = (color)=>({
+   color,
+})
